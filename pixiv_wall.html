@@ -35,15 +35,15 @@
         document.getElementById("iw_thumbs").innerHTML+="<li style='padding: 500px;'></li>";
 
 
-	 var load_url="http://56.50.32.168:8080/Pixiv_wall_project/pixiv_wall";
+	 var load_url="http://56.50.32.160:8080/Pixiv_wall_project/pixiv_wall";
  $.ajax({
         data:{},//这是要传给action的值，action中用getset获取可用
         type: 'post',//struts2使用post不乱码
         url: load_url,
         dataType: 'json',
-        success: function(data) {
-        
-        data=[
+        success: function(data) {},
+        error:function(e) {
+       var data=[ 
     {
         "img_no": "1位",
         "img_title": "RE:0",
