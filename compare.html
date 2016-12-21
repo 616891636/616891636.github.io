@@ -1,0 +1,44 @@
+<html>  
+		
+<head>  
+<script type="text/javascript">  
+  function showS()  
+  {  
+    document.getElementById("test").scrolling="yes";  
+    document.getElementById("test").style.overflow="scroll";  
+    //alert(document.getElementById("test").scrolling);  
+       
+  }  
+  function hideS()  
+  {  
+    document.getElementById("test").scrolling="no";  
+    document.getElementById("test").style.overflow="hidden";  
+    //alert(document.getElementById("test").style.overflow);  
+  }  
+</script>      
+  
+<style>  
+<!-- .ifr{width:600px;height:600px;background:#fff;overflow:hidden;display:block;position:absolute;top: 0;left: 0;right: 0;} -->  
+</style>  
+</head>  
+<body>  
+    <div class="ifr" onMouseOut="hideS()" onMouseOver="showS()" style="    width: 100%;    height: 100%;">  
+        <iframe id="test" width="100%" height="100%" frameborder="0" src="" style="margin:0px;" ></iframe>  
+        <script language="JavaScript">    
+            var iframe = document.getElementById("test");     
+            iframe.src = "https://56.50.32.168:8443/ec_frontend/mobileUserCenter/showMyOderPage";   
+            //以下判断iframe是否加载完,并且隐藏滚动条  
+            if (iframe.attachEvent){  
+                iframe.attachEvent("onload", function(){                                  
+                    //hideS();  
+                    //document.getElementById("loading").style.display="none";    
+                });     
+            } else {     
+                iframe.onload = function(){  
+                //   hideS();                      
+                //document.getElementById("loading").style.display="none";    
+                };     
+            }  
+        </script>   
+    </div>  
+</body>  
