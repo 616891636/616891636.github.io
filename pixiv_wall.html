@@ -34,9 +34,10 @@
      }
         document.getElementById("iw_thumbs").innerHTML+="<li style='padding: 500px;'></li>";
 
+     var load_url="http://56.50.32.168:8081/spring/ajaxMix/pixiv_wall";
 
-	 var load_url="json/pixiv_wall.json";
- $.ajax({
+	// var load_url="json/pixiv_wall.json";
+/* $.ajax({
         data:{},//这是要传给action的值，action中用getset获取可用
         type: 'get',//struts2使用post不乱码
         url: load_url,
@@ -51,6 +52,28 @@
          }
         }
     }); 
+    */
+//以下就是jsonp完美替代ajax的范例 
+    $.ajax({
+  		url: load_url,
+  		type: "get",
+  		async: false,
+  		dataType: "jsonp",
+  		jsonp: "callback", //服务端用于接收callback调用的function名的参数   
+  		jsonpCallback: "success_jsonpCallback", //callback的function名称,服务端会把名称和data一起传递回来   
+  		success: function(data) {
+  		
+  		 for(var i=0;i<50;i++){
+       //    for(var i=0;i<data.length;i++){
+         	document.getElementsByTagName("img")[i].src=data[i].img_src;    
+         	document.getElementsByTagName("div")[i+2].getElementsByTagName("h2")[0].innerHTML=data[i].img_no+"."+data[i].img_title;
+           	document.getElementsByTagName("div")[i+2].getElementsByTagName("p")[0].innerHTML=data[i].img_painter+"<br><a style='color:white' target='_blank' href="+data[i].img_link+">"+data[i].img_link+"</a>";
+         }
+  		},
+  		error: function() {
+  			alert('Error');
+  		}
+  	});
     
     
 </script>
