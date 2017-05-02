@@ -5,14 +5,12 @@
 		<title></title>
 	<script type="text/javascript" src="js/jquery-1.6.1.js" ></script>
 	</head>
-	
 	<body>
-	
 	  访问人数: <label id="pn" ></label>
-	
+	  <input type="text" id="inputdata" /> <input type="button" onclick="sumbitlocaldata()"  value="添加"/>
+	  <label id="localdata" ></label>
+
 	</body>
-	
-	
 	<script>
 		//git clone https://github.com/616891636/616891636.github.io.git
 	var load_url="json/data.json";
@@ -24,10 +22,31 @@
         cache:false,
         success: function(data) {  
            for(var i=0;i<data.length;i++){
-         	document.getElementById("pn").innerHTML=data[i].value;    
+         	document.getElementById("pn").innerHTML=data[i].value;   
+         	document.getElementById("localdata").innerHTML=data[i].text;    
           }
         }
-    }); 
-		
+   }); 
+   
+   function sumbitlocaldata(){
+   	var inputdata=document.getElementById("inputdata").value;
+   		var load_url="http://localhost:8081/spring/fileDeal/sumbitlocaldata";
+ $.ajax({
+        data:{localdata:inputdata},//这是要传给action的值，action中用getset获取可用
+        type: 'get',//struts2使用post不乱码
+        url: load_url,
+        dataType: 'json',
+        cache:false,
+        success: function(data) {  
+           for(var i=0;i<data.length;i++){
+         	document.getElementById("pn").innerHTML=data[i].value;   
+         	document.getElementById("localdata").innerHTML=data[i].text;    
+          }
+        }
+   }); 
+   	
+   	
+   	
+   }
 	</script>
 </html>
