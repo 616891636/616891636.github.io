@@ -33,7 +33,7 @@
    		var load_url="https://56.50.32.168:8443/spring/fileDeal/sumbitlocaldata";
  $.ajax({
         data:{localdata:inputdata},//这是要传给action的值，action中用getset获取可用
-        type: 'get',//struts2使用post不乱码
+        type: 'post',//struts2使用post不乱码
         url: load_url,
         dataType: 'json',
         cache:false,
