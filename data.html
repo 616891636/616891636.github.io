@@ -30,7 +30,7 @@
    
    function sumbitlocaldata(){
    	var inputdata=document.getElementById("inputdata").value;
-   		var load_url="http://localhost:8081/spring/fileDeal/sumbitlocaldata";
+   		var load_url="https://localhost:8083/spring/fileDeal/sumbitlocaldata";
  $.ajax({
         data:{localdata:inputdata},//这是要传给action的值，action中用getset获取可用
         type: 'get',//struts2使用post不乱码
