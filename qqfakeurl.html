@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+<script type="text/javascript">
+(function(){
+var p = {
+url:'http://mtfly.net',
+desc:'',
+title:'发红包啦!',
+summary:'赶紧点击拆开吧!',
+pics:'https://mqq-imgcache.gtimg.cn/res/mqq/hongbao/img/message_logo_100.png',
+flash: '',
+site:'QQ红包',
+style:'101',
+width:96,
+height:24
+};
+var s = [];
+for(var i in p){
+s.push(i + '=' + encodeURIComponent(p[i]||''));
+}
+document.write(['<a href="http://connect.qq.com/widget/shareqq/index.html?',s.join('&'),'" target="_blank">分享到QQ</a>'].join(''));
+})();
+</script>
+<script src="http://connect.qq.com/widget/loader/loader.js" widget="shareqq" charset="utf-8"></script>
+</html>
