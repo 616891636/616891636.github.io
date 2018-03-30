@@ -35,11 +35,11 @@
         document.getElementById("iw_thumbs").innerHTML+="<li style='padding: 500px;'></li>";
 
    //  var load_url="http://56.50.32.168:8081/spring/ajaxMix/pixiv_wall";
-     var load_url="http://140.82.25.142:8080/spring-web/ajaxMix/pixiv_wall";
+     var load_url="http://localhost:8080/spring-web/ajaxMix/pixiv_wall";
     //   load_url="http://localhost:81/test/backend/web/index.php?r=pixivwall/helloworld";//php版本路径
     //   load_url="http://127.0.0.1:7777/"//node.js版本路径
 	// var load_url="json/pixiv_wall.json";
- $.ajax({
+ /*$.ajax({
         data:{},//这是要传给action的值，action中用getset获取可用
         type: 'get',//struts2使用post不乱码
         url: load_url,
@@ -53,10 +53,10 @@
            	document.getElementsByTagName("div")[i+2].getElementsByTagName("p")[0].innerHTML=data[i].img_painter+"<br><a style='color:white' target='_blank' href="+data[i].img_link+">"+data[i].img_link+"</a>";
          }
         }
-    }); 
+    }); */
     
 //以下就是jsonp完美替代ajax的范例 
-/*    $.ajax({
+    $.ajax({
   		url: load_url,
   		type: "get",
   		async: false,
@@ -75,7 +75,7 @@
   		error: function() {
   			alert('Error');
   		}
-  	});*/
+  	});
     
     
 </script>
